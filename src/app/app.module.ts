@@ -12,11 +12,17 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule }from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { RegisterUserComponent } from './user/register-user/register-user.component';
+import { LoginUserComponent } from './user/login-user/login-user.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterUserComponent,
+    LoginUserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
