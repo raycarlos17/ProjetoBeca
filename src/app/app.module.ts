@@ -15,14 +15,20 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RegisterUserComponent } from './user/register-user/register-user.component';
 import { LoginUserComponent } from './user/login-user/login-user.component';
 import { FooterComponent } from './footer/footer.component';
+import { AuthModule } from './auth/auth-module/auth.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegisterUserComponent,
+    FooterComponent,
     LoginUserComponent,
-    FooterComponent
+    RegisterUserComponent,
+    NotFoundComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -30,11 +36,14 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule,
+    AppRoutingModule
 
   ],
   providers: [],

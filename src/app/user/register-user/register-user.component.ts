@@ -48,10 +48,7 @@ export class RegisterUserComponent implements OnInit {
         phone:this.formRegister.value.phone
       }
       this.auhtService.register(newUser).subscribe((u)=>{
-        this.snackBar.open('Criado com sucesso','OK',{
-          duration:2000,
-          verticalPosition:'top'
-        })
+
       },
       (err)=>{
         console.log(err);
@@ -61,6 +58,10 @@ export class RegisterUserComponent implements OnInit {
         })
       }
       )
+      this.snackBar.open('Criado com sucesso','OK',{
+        duration:2000,
+        verticalPosition:'top'
+      })
   }
 
 

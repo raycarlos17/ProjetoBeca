@@ -4,6 +4,7 @@ import { User } from 'src/app/user/model/user.model';
 import{ AngularFireAuth } from '@angular/fire/auth';
 import { from, Observable, throwError, } from 'rxjs';
 import { switchMap, catchError, switchMapTo } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,12 @@ export class AuthService {
 
   private userCollection: AngularFirestoreCollection<User> = this.afs.collection('users')
 constructor(private afs:AngularFirestore,
-  private afAuth:AngularFireAuth) { }
+  private afAuth: AngularFireAuth,
+private http:HttpClient) { }
 
 
-register(user:User):Observable<boolean>{
+  register(user: User): Observable<boolean>{
+
  return from(this.afAuth.createUserWithEmailAndPassword(user.email, user.password))
  .pipe(switchMap((u:firebase.auth.UserCredential)=>
   this.userCollection.doc(u.user.uid).set({...user, id:u.user.uid}).then(()=>true)
