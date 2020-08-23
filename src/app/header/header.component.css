@@ -1,0 +1,10 @@
+mat-toolbar{
+    height: 10%;
+    font-size: 35px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-image: linear-gradient(to right,yellowgreen, #000000);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+}
