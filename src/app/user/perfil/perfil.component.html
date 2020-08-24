@@ -5,14 +5,14 @@
       <label for="name">Nome</label>
       <label for="last-name" class="sobrenome">Sobrenome</label>
       <div class="form-group">
-        <input type="text" id="name">
-        <input type="text" id="last-name">
+        <input type="text" id="name" value="{{ (user$|async)?.firstname }}">
+        <input type="text" id="last-name" value="{{ (user$|async)?.lastname }}">
       </div>
 
       <label for="email">Email</label>
-      <input type="text" id="email">
+      <input type="text" id="email" value="{{ (user$|async)?.email }}">
       <label for="phone">Telefone</label>
-      <input type="text" id="phone">
+      <input type="text" id="phone" value="{{ (user$|async)?.phone }}">
     </div>
   </mat-card>
 </div>
