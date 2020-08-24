@@ -6,6 +6,7 @@
       <button mat-button routerLink="/auth/register"><mat-icon>person_add</mat-icon>Criar conta</button>
     </ng-container>
     <ng-container *ngIf="(authenticated$|async) && (user$|async)">
+      <div id="buu">
       <button mat-icon-button routerLink="/"><mat-icon>home</mat-icon></button>
 
       <button mat-icon-button (click)="logout()"><mat-icon>exit_to_app</mat-icon></button>
@@ -19,6 +20,7 @@
   <mat-divider></mat-divider>
   <button mat-menu-item> <mat-icon>exit_to_app</mat-icon>Exit</button>
 </mat-menu>
+</div>
     </ng-container>
     </div>
 </mat-toolbar>

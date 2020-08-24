@@ -3,9 +3,9 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { User } from 'src/app/user/model/user.model';
 import{ AngularFireAuth } from '@angular/fire/auth';
 import { from, Observable, throwError, of, } from 'rxjs';
-import { switchMap, catchError, switchMapTo, map } from 'rxjs/operators';
+import { switchMap, catchError, switchMapTo, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-
+import { auth } from 'firebase/app';
 @Injectable({
   providedIn: 'root'
 })
@@ -54,5 +54,23 @@ logout(){
   authenticate():Observable<boolean> {
     return this.afAuth.authState
       .pipe(map(u=>(u) ? true :false))
+  }
+  loginGoogle():Observable<User> {
+    const provider = new auth.GoogleAuthProvider();
+    return from(this.afAuth.signInWithPopup(provider)).pipe(
+      tap((data) => console.log()),
+      switchMap((u: auth.UserCredential) => {
+        const newUser:User={
+          firstname :u.user.displayName,
+          lastname:'',
+          email:u.user.email,
+          password:'',
+          phone: null,
+          id: u.user.uid
+        }
+        return this.userCollection.doc(u.user.uid).set(newUser).then(()=> newUser)
+      })
+    )
+
   }
 }
