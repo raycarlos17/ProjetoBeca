@@ -46,12 +46,19 @@ export class RegisterUserComponent implements OnInit {
         email:this.formRegister.value.email,
         password:this.formRegister.value.password1,
         phone:this.formRegister.value.phone
-      }
-      this.auhtService.register(newUser).subscribe((u)=>{
+    }
+
+    this.auhtService.email(newUser).subscribe((a) => [
+
+    ])
+
+
+   this.auhtService.register(newUser).subscribe((u) => {
         this.snackBar.open('Criado com sucesso','OK',{
           duration:2000,
           verticalPosition:'top'
         })
+        this.router.navigateByUrl('/auth/login')
       },
       (err)=>{
         console.log(err);
@@ -61,6 +68,10 @@ export class RegisterUserComponent implements OnInit {
         })
       }
       )
+
+
+
+
   }
 
 

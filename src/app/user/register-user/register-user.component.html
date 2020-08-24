@@ -11,26 +11,27 @@
 
         <div fxLayout="row" fxLayoutAlign="space-between stretch">
           <mat-form-field fxFlex="45">
-            <input matInput type="text" formControlName="firstname"
+            <input matInput  type="text" formControlName="firstname"
               autocomplete="firstname" placeholder="Primeiro nome">
           </mat-form-field>
           <mat-form-field fxFlex="45">
-            <input matInput type="text" formControlName="lastname"
+            <input matInput type="text"  formControlName="lastname"
               autocomplete="lastname" placeholder="Sobrenome" >
           </mat-form-field>
         </div>
 
 
 
-        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+        <div fxLayout="row" fxLayoutAlign="space-between stretch" >
           <mat-form-field fxFlex="45">
             <input matInput type="text" formControlName="phone"
               autocomplete="Phone" placeholder="N° de celular"  >
           </mat-form-field>
 
+
         </div>
 
-        <div fxLayout="row" fxLayoutAlign="space-between stretch">
+          <div fxLayout="row" fxLayoutAlign="space-between stretch" >
           <mat-form-field fxFlex="100">
             <input matInput type="email" formControlName="email"
               class="form-control" value="" autocomplete="email" placeholder="E-mail" >
@@ -39,7 +40,7 @@
 
         <div fxLayout="row" fxLayoutAlign="space-between stretch">
 
-          <mat-form-field  fxFlex="45">
+          <mat-form-field  fxFlex="45" >
             <input matInput type="password" formControlName="password1"
               type="password" autocomplete="off">
             <mat-placeholder>
@@ -66,9 +67,12 @@
 
 
         </mat-card-content>
+        <button mat-button color="primary" routerLink="/auth/login">
+          Login
+        </button>
+
     </mat-card>
     </form>
-
 
   </div>
 </div>
