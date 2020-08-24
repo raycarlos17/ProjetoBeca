@@ -3,8 +3,14 @@ mat-toolbar{
     font-size: 35px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-image: linear-gradient(to right,yellowgreen, #000000);
-    position: absolute;
+    position: relative;
     left: 0;
     width: 100%;
     top: 0;
+}
+div{
+  margin-left: 63%;
+}
+button{
+  color:white
 }

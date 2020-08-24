@@ -18,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthModule } from './auth/auth-module/auth.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { IndexComponent } from './index/index.component';
+import { MainModule } from './main/main.module'
 
 @NgModule({
   declarations: [
@@ -28,11 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
     LoginUserComponent,
     RegisterUserComponent,
     NotFoundComponent,
+    IndexComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
@@ -43,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireDatabaseModule,
     ReactiveFormsModule,
     AuthModule,
+    MainModule,
     AppRoutingModule
 
   ],

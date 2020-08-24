@@ -4,10 +4,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
 
-  {path:'main', loadChildren:'./auht/auth-module/auth.module#AuthModule'},
+  {path:'main', loadChildren:'./main/main.module#MainModule'},
 
 
-
+  {path:'**', component:NotFoundComponent}
 ];
 
 @NgModule({
