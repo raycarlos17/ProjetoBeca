@@ -60,7 +60,18 @@ export class LoginUserComponent implements OnInit {
   }
 
   loginGoogle() {
+    this.loading = true
+    this.authService.loginGoogle().subscribe((u) => {
+      this.loginOkNotification(u);
+      this.router.navigateByUrl('/');
+      this.loading = false
 
+    },
+      (err) => {
+        this.loginErrorNotNotification(err);
+        this.loading = false
+    
+    });
   }
 
 }

@@ -58,7 +58,7 @@ export class RegisterUserComponent implements OnInit {
           duration:2000,
           verticalPosition:'top'
         })
-        this.router.navigateByUrl('/auth/login')
+        this.router.navigateByUrl('/')
       },
       (err)=>{
         console.log(err);
