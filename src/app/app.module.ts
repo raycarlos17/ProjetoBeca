@@ -19,7 +19,8 @@ import { AuthModule } from './auth/auth-module/auth.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './index/index.component';
-import { MainModule } from './main/main.module'
+import { MainModule } from './main/main.module';
+import { AdminComponent } from './admin/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MainModule } from './main/main.module'
     RegisterUserComponent,
     NotFoundComponent,
     IndexComponent,
+    AdminComponent,
 
   ],
   imports: [
@@ -45,7 +47,8 @@ import { MainModule } from './main/main.module'
     ReactiveFormsModule,
     AuthModule,
     MainModule,
-    AppRoutingModule
+    AppRoutingModule,
+
 
   ],
   providers: [],
