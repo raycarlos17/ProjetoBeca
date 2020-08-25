@@ -23,6 +23,8 @@ import { MainModule } from './main/main.module';
 import { SugestionComponent } from './sugestion/sugestion.component';
 import { NgxDropzoneModule} from 'ngx-dropzone';
 import { DropzoneComponent } from './dropzone/dropzone.component';
+import { PerfilComponent } from './user/perfil/perfil.component'
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,9 @@ import { DropzoneComponent } from './dropzone/dropzone.component';
     IndexComponent,
     SugestionComponent,
     DropzoneComponent,
+
+    PerfilComponent,
+
 
   ],
   imports: [
