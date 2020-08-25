@@ -1,3 +1,36 @@
 table {
     width: 100%;
   }
+
+.mat-elevation-z8 {
+  display: flex;
+  position: static;
+  float: right;
+  margin: 10px;
+  width: 88%;
+
+}
+
+.card-filtro{
+  position: absolute;
+  margin: 10px;
+  width: 8%;
+}
+
+.checkbox-filtro{
+  padding-right: 40px;
+}
+
+.filter{
+  border: 1px;
+  display: flex;
+  position: static;
+  float: right;
+  margin: 10px;
+  width: 86%;
+}
+
+.filter-form{
+  width: 153vh;
+  margin: 10px;
+}
