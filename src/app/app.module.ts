@@ -22,6 +22,7 @@ import { IndexComponent } from './index/index.component';
 import { MainModule } from './main/main.module';
 import { SugestionComponent } from './sugestion/sugestion.component';
 import { NgxDropzoneModule} from 'ngx-dropzone';
+import { AdminComponent } from './admin/admin/admin.component';
 import { PerfilComponent } from './user/perfil/perfil.component'
 
 
@@ -36,6 +37,9 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     IndexComponent,
     SugestionComponent,
       PerfilComponent,
+    AdminComponent,
+    PerfilComponent,
+
 
 
   ],
@@ -53,7 +57,8 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     NgxDropzoneModule,
     AuthModule,
     MainModule,
-    AppRoutingModule
+    AppRoutingModule,
+
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

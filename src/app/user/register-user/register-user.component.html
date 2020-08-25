@@ -1,4 +1,5 @@
-<div  fxLayout="row" fxLayoutAlign="space-around center" >
+
+<div class='div-login'  fxLayout="row" fxLayoutAlign="space-around center" >
   <div align="center" fxLayout="row" fxLayoutAlign="center center"  class="register-form">
 
     <form role="form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
@@ -62,14 +63,12 @@
             <button mat-button color="primary" type="submit" [disabled]="!formRegister.valid">
               <mat-icon>done</mat-icon>&nbsp;Cadastrar
             </button>
+            <button class='button-login' mat-button color="primary" routerLink="/auth/login">
+              Login
+            </button>
         </div>
 
-
-
         </mat-card-content>
-        <button mat-button color="primary" routerLink="/auth/login">
-          Login
-        </button>
 
     </mat-card>
     </form>
