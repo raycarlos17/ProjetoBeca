@@ -4,7 +4,9 @@ import {Sugestion} from './model/sugestion.model'
 import { AuthService } from '../auth/shared/auth.service';
 import { SugestionService } from './shared/sugestion.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DropzoneService } from '../dropzone/shared/dropzone.service';
+import { Observable } from 'rxjs';
+import { AngularFireStorage } from "@angular/fire/storage";
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sugestion',
@@ -12,8 +14,11 @@ import { DropzoneService } from '../dropzone/shared/dropzone.service';
   styleUrls: ['./sugestion.component.css']
 })
 export class SugestionComponent implements OnInit {
+  selectedFile: File = null;
+  fab;
+  files: File[] = [];
 
-  private file: FileList[];
+  downloadURL: Observable<string>;
   sugestionForm: FormGroup = this.fb.group({
     'type': ['', [Validators.required]],
     'comment': ['', [Validators.required]],
@@ -24,31 +29,64 @@ export class SugestionComponent implements OnInit {
     private auhtService: AuthService,
     private sugestioService: SugestionService,
     private snackBar: MatSnackBar,
-    private dropzone:DropzoneService
+    private storage: AngularFireStorage
   ) { }
 
   ngOnInit(): void {
   }
+  onSelect(event) {
 
-
-  onDropFiles(file:FileList) {
-
-   // this.dropzone.uploadFiles(file.item(0))
-    this.file.push
+    this.files.push(...event.addedFiles);
   }
+  onRemove(event) {
+
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+  onFileSelected(n) {
+
+
+    const filePath = `Sugestao/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    for (let key in this.files) {
+      const task = this.storage.upload(`Sugestao/${n}`, this.files[key]);
+
+      task
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            this.downloadURL = fileRef.getDownloadURL();
+            this.downloadURL.subscribe(url => {
+              if (url) {
+                this.fab = url;
+              }
+              console.log(this.fab);
+            });
+          })
+        )
+        .subscribe(url => {
+          if (url) {
+            console.log(url);
+          }
+        });
+    }
+  }
+
+
   onSubmit() {
+    for (let key in this.files) {
+      this.auhtService.getUser().subscribe((u) => {
 
-    this.auhtService.getUser().subscribe((u) => {
-
-      const newSuges: Sugestion = {
-        type: this.sugestionForm.value.type,
-        comment: this.sugestionForm.value.comment,
-        uploud: '',
-        idUser: u.id,
-        data: Date.now()
-      }
-
-     // this.sugestioService.addSugestion(newSuges)
-    })
+        const newSuges: Sugestion = {
+          type: this.sugestionForm.value.type,
+          comment: this.sugestionForm.value.comment,
+          uploud: '',
+          User: u,
+          data: Date.now()
+        }
+        console.log()
+       this.onFileSelected(u.id)
+        this.sugestioService.addSugestion(newSuges)
+      })
+    }
   }
 }

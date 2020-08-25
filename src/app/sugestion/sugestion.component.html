@@ -21,7 +21,20 @@
                   <mat-label>Conte-nos</mat-label>
                   <textarea matInput placeholder="Escreva seu comentario" formControlName='comment'></textarea>
                 </mat-form-field>
-                <app-dropzone (droppedfiles)="onDropFiles($event)"></app-dropzone>
+
+                 <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)"                  id="file"
+                 #userPhoto
+
+                 name="image" >
+                  <ngx-dropzone-label>
+                    <div>
+                      <h2>Imagens</h2>
+                    </div>
+                  </ngx-dropzone-label>
+                  <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)" >
+                    <ngx-dropzone-label  >{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-image-preview>
+                </div>
 
                 <div fxLayout="row" fxLayoutAlign="end end" >
                   <button  mat-button color="primary"  type="submit" [disabled]="!sugestionForm.valid">Submit</button>
@@ -31,7 +44,7 @@
           </div>
           <mat-divider></mat-divider>
 
-
-
+        </div>
+<app-dropzone></app-dropzone>
 
 
