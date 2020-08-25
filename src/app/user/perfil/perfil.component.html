@@ -1,0 +1,21 @@
+<div class="cartao">
+  <mat-card>
+    <h1>Perfil</h1>
+    <div class="formulario">
+      <label for="name">Nome</label>
+      <label for="last-name" class="sobrenome">Sobrenome</label>
+      <div class="form-group">
+        <input type="text" id="name" value="{{ (user$|async)?.firstname }}" disabled>
+        <input type="text" id="last-name" value="{{ (user$|async)?.lastname }}" disabled>
+      </div>
+
+      <label for="email">Email</label>
+      <input type="text" id="email" value="{{ (user$|async)?.email }}" disabled>
+      <label for="phone">Telefone</label>
+      <input type="text" id="phone" value="{{ (user$|async)?.phone }}" disabled>
+    </div>
+  </mat-card>
+</div>
+
+
+
