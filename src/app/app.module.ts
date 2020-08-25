@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './index/index.component';
 import { MainModule } from './main/main.module';
 import { AdminComponent } from './admin/admin/admin.component';
+import { PerfilComponent } from './user/perfil/perfil.component'
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,11 @@ import { AdminComponent } from './admin/admin/admin.component';
     RegisterUserComponent,
     NotFoundComponent,
     IndexComponent,
+
     AdminComponent,
+
+    PerfilComponent,
+
 
   ],
   imports: [
