@@ -20,7 +20,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './index/index.component';
 import { MainModule } from './main/main.module';
+import { AdminComponent } from './admin/admin/admin.component';
 import { PerfilComponent } from './user/perfil/perfil.component'
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,11 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     RegisterUserComponent,
     NotFoundComponent,
     IndexComponent,
+
+    AdminComponent,
+
     PerfilComponent,
+
 
   ],
   imports: [
@@ -47,7 +53,8 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     ReactiveFormsModule,
     AuthModule,
     MainModule,
-    AppRoutingModule
+    AppRoutingModule,
+
 
   ],
   providers: [],
