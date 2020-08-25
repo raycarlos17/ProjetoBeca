@@ -10,18 +10,10 @@ import { MatPaginator } from '@angular/material/paginator';
 export class AdminComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['numero', 'name', 'email', 'date', 'type', 'description'];
+  displayedColumns: string[] = ['numero', 'name', 'email', 'date', 'type', 'description', 'excluir'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
-  checkNumero: boolean = false;
-  checkName: boolean = false;
-  checkEmail: boolean = false;
-  checkDate: boolean = false;
-  checkType: boolean = false;
-  checkDescription: boolean = false;
-
 
   constructor() { }
 
@@ -36,6 +28,10 @@ export class AdminComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deleteOcorrencias(registro)  {
+    this.dataSource
   }
 
 
@@ -53,4 +49,8 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {numero: 1, name: 'Ray', email: 'raycarlos17@gmail.com', date: '24/08/2020', type: 'Sugestão', 
   description: 'Colocar mais equipamentos'},
+  {numero: 2, name: 'Carlos', email: 'carlos@gmail.com', date: '24/08/2020', type: 'Reclamação', 
+  description: 'Equipamentos quebrados'},
+  {numero: 3, name: 'Felipe', email: 'felipe@gmail.com', date: '24/08/2020', type: 'Elogio', 
+  description: 'Equipamentos muito bem conservados'},
 ];

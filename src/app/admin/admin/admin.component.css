@@ -1,36 +1,22 @@
-table {
-    width: 100%;
-  }
-
-.mat-elevation-z8 {
-  display: flex;
-  position: static;
-  float: right;
-  margin: 10px;
-  width: 88%;
-
-}
-
-.card-filtro{
-  position: absolute;
-  margin: 10px;
-  width: 8%;
-}
-
-.checkbox-filtro{
-  padding-right: 40px;
-}
-
-.filter{
-  border: 1px;
-  display: flex;
-  position: static;
-  float: right;
-  margin: 10px;
-  width: 86%;
-}
-
 .filter-form{
-  width: 153vh;
-  margin: 10px;
+  margin: 40px;
+  margin-bottom: 0;
+  width: 90%;
 }
+.mat-elevation-z8{
+  margin: 40px;
+
+}
+
+table{
+  width: 100%;
+}
+
+.div-filter{
+  width: 100%;
+}
+
+.card-title-table{
+  text-align: center;
+}
+
