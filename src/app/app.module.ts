@@ -21,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './index/index.component';
 import { MainModule } from './main/main.module';
 import { AdminComponent } from './admin/admin/admin.component';
-import { PerfilComponent } from './user/perfil/perfil.component'
+import { PerfilComponent } from './user/perfil/perfil.component';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     RegisterUserComponent,
     NotFoundComponent,
     IndexComponent,
+    
 
     AdminComponent,
 
@@ -54,6 +56,7 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     AuthModule,
     MainModule,
     AppRoutingModule,
+    MatCarouselModule.forRoot()
 
 
   ],
