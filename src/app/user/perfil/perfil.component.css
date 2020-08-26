@@ -57,6 +57,13 @@ label {
   height: 180px;
   display: flex;
   border: yellowgreen solid 1px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 400ms;
+}
+
+.custom-dropzone:hover {
+  background-color: rgba(1, 2, 0, 0.2);;
 }
 
 .header-perfil {
