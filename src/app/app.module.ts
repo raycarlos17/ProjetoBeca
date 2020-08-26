@@ -37,16 +37,10 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     RegisterUserComponent,
     NotFoundComponent,
     IndexComponent,
-
-    
     SugestionComponent,
     PerfilComponent,
-
-      PerfilComponent,
-
-
     AdminComponent,
-    PerfilComponent,
+
 
 
 
