@@ -1,11 +1,29 @@
 <div class="cartao">
   <mat-card>
-    <h1>Perfil</h1>
+    <div class="header-perfil">
+      <div>
+        <h1>Perfil</h1>
+      </div>
+
+      <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)" id="file" #userPhoto
+        name="image">
+        <ngx-dropzone-label>
+          <div>
+            <h2>Foto-perfil</h2>
+          </div>
+        </ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true"
+          (removed)="onRemove(f)">
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+      </div>
+    </div>
+
     <div class="formulario">
-      <label for="name">Nome</label>
-      <label for="last-name" class="sobrenome">Sobrenome</label>
       <div class="form-group">
+        <label for="name">Nome</label>
         <input type="text" id="name" value="{{ (user$|async)?.firstname }}" disabled>
+        <label for="last-name" class="sobrenome">Sobrenome</label>
         <input type="text" id="last-name" value="{{ (user$|async)?.lastname }}" disabled>
       </div>
 
@@ -13,6 +31,7 @@
       <input type="text" id="email" value="{{ (user$|async)?.email }}" disabled>
       <label for="phone">Telefone</label>
       <input type="text" id="phone" value="{{ (user$|async)?.phone }}" disabled>
+
     </div>
   </mat-card>
 </div>
