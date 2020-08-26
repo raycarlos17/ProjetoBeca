@@ -27,6 +27,7 @@ import { PerfilComponent } from './user/perfil/perfil.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,10 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 
     
     SugestionComponent,
+    PerfilComponent,
+
       PerfilComponent,
+
 
     AdminComponent,
     PerfilComponent,

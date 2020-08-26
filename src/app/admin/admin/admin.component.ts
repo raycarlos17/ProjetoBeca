@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-admin',
@@ -10,7 +11,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class AdminComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['numero', 'name', 'email', 'date', 'type', 'description', 'excluir'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -21,11 +22,25 @@ export class AdminComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  deleteOcorrencias(arrayOcorrencias, element)  {
+    let posicao = arrayOcorrencias.data.indexOf(element);
+    arrayOcorrencias.data.splice(posicao, 1);
+    this.dataSource = new MatTableDataSource<PeriodicElement>(arrayOcorrencias.data);
+  }
 
 }
 
 export interface PeriodicElement {
-  position: number;
+  numero: number;
   name: string;
   email: string;
   date: String;
@@ -34,6 +49,10 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Ray', email: 'raycarlos17@gmail.com', date: '24/08/2020', type: 'Sugestão', 
+  {numero: 1, name: 'Ray', email: 'raycarlos17@gmail.com', date: '24/08/2020', type: 'Sugestão', 
   description: 'Colocar mais equipamentos'},
+  {numero: 2, name: 'Carlos', email: 'carlos@gmail.com', date: '24/08/2020', type: 'Reclamação', 
+  description: 'Equipamentos quebrados'},
+  {numero: 3, name: 'Felipe', email: 'felipe@gmail.com', date: '24/08/2020', type: 'Elogio', 
+  description: 'Equipamentos muito bem conservados'},
 ];
