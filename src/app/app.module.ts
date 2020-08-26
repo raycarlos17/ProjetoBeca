@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './index/index.component';
 import { MainModule } from './main/main.module';
+import { SugestionComponent } from './sugestion/sugestion.component';
+import { NgxDropzoneModule} from 'ngx-dropzone';
 import { AdminComponent } from './admin/admin/admin.component';
 import { PerfilComponent } from './user/perfil/perfil.component'
 
@@ -33,10 +35,11 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     RegisterUserComponent,
     NotFoundComponent,
     IndexComponent,
-
+    SugestionComponent,
+      PerfilComponent,
     AdminComponent,
-
     PerfilComponent,
+
 
 
   ],
@@ -51,12 +54,14 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     ReactiveFormsModule,
+    NgxDropzoneModule,
     AuthModule,
     MainModule,
     AppRoutingModule,
 
 
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
 })
