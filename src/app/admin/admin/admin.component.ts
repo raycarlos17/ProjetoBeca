@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-admin',
@@ -30,10 +31,11 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  deleteOcorrencias(registro)  {
-    this.dataSource
+  deleteOcorrencias(arrayOcorrencias, element)  {
+    let posicao = arrayOcorrencias.data.indexOf(element);
+    arrayOcorrencias.data.splice(posicao, 1);
+    this.dataSource = new MatTableDataSource<PeriodicElement>(arrayOcorrencias.data);
   }
-
 
 }
 

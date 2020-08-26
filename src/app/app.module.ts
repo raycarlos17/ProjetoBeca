@@ -26,6 +26,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { PerfilComponent } from './user/perfil/perfil.component'
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     NotFoundComponent,
     IndexComponent,
     SugestionComponent,
-      PerfilComponent,
+    PerfilComponent,
     AdminComponent,
     PerfilComponent,
 
