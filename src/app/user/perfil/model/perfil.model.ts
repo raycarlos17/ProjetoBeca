@@ -1,6 +1,6 @@
 import { User } from '../../model/user.model';
 
-export class Sugestion{
+export class Perfil{
   id?: any
   uploud: any;
   User:User;
