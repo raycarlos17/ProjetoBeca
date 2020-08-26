@@ -23,7 +23,9 @@ import { MainModule } from './main/main.module';
 import { SugestionComponent } from './sugestion/sugestion.component';
 import { NgxDropzoneModule} from 'ngx-dropzone';
 import { AdminComponent } from './admin/admin/admin.component';
-import { PerfilComponent } from './user/perfil/perfil.component'
+import { PerfilComponent } from './user/perfil/perfil.component';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 
 
 @NgModule({
@@ -36,9 +38,9 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     NotFoundComponent,
     IndexComponent,
     SugestionComponent,
-      PerfilComponent,
-    AdminComponent,
     PerfilComponent,
+    AdminComponent,
+
 
 
 
@@ -58,6 +60,7 @@ import { PerfilComponent } from './user/perfil/perfil.component'
     AuthModule,
     MainModule,
     AppRoutingModule,
+    MatCarouselModule.forRoot()
 
 
   ],
