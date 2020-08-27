@@ -25,6 +25,7 @@ import { NgxDropzoneModule} from 'ngx-dropzone';
 import { AdminComponent } from './admin/admin/admin.component';
 import { PerfilComponent } from './user/perfil/perfil.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { AdmImagensComponent } from './admin/adm-imagens/adm-imagens.component';
 
 
 
@@ -40,6 +41,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     SugestionComponent,
     PerfilComponent,
     AdminComponent,
+    AdmImagensComponent,
 
 
 
