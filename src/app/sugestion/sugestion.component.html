@@ -29,8 +29,8 @@
         </ngx-dropzone-image-preview>
       </div>
       <div class='div-buttons' fxLayout="row" fxLayoutAlign="end end">
-        <button class='button-submit' mat-button color="primary" type="submit" [disabled]="!sugestionForm.valid">Submit</button>
-        <button class='button-cancel' mat-button color="warn" type="reset">Cancel</button>
+        <button class='button-submit' mat-button color="primary" type="submit" [disabled]="!sugestionForm.valid">Enviar</button>
+        <button class='button-cancel' mat-button color="warn" type="reset"(click)="onRemoveMulti()">Cancelar</button>
       </div>
     </form>
   </div>

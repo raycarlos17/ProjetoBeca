@@ -25,6 +25,9 @@ import { NgxDropzoneModule} from 'ngx-dropzone';
 import { AdminComponent } from './admin/admin/admin.component';
 import { PerfilComponent } from './user/perfil/perfil.component';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { RegisterGymComponent } from './gym/register-gym/register-gym.component';
+import { CepComponent } from './gym/cep/cep.component';
+import { MapsComponent } from './maps/maps.component';
 
 
 
@@ -40,6 +43,10 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     SugestionComponent,
     PerfilComponent,
     AdminComponent,
+    RegisterGymComponent,
+    CepComponent,
+    MapsComponent
+
 
 
 
