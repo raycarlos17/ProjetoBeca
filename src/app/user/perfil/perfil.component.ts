@@ -3,6 +3,9 @@ import { Observable } from 'rxjs';
 import { User } from '../../user/model/user.model';
 import { AuthService } from '../../auth/shared/auth.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage, createStorageRef, BUCKET } from "@angular/fire/storage";
+import { finalize } from 'rxjs/operators';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-perfil',
@@ -15,24 +18,74 @@ export class PerfilComponent implements OnInit {
   selectedFile: File = null;
   fab;
   files: File[] = [];
+  downloadURL: Observable<string>;
+  public imageUrl = []
+  storageRef: any;
 
-  constructor(private authService: AuthService,
-  private router:Router) {
+  constructor(public authService: AuthService,
+  public router:Router,
+  public storage: AngularFireStorage) {
     this.user$ = this.authService.getUser()
     this.authenticated$ = this.authService.authenticate()
    }
 
   ngOnInit(): void {
+
+    this.authService.getUser().subscribe((u) =>{
+
+
+      this.storageRef = firebase.storage().ref().put(this.fab);
+      console.log(this.storageRef);
+    });
   }
+
 
   onSelect(event) {
 
-    this.files.push(...event.addedFiles);
+    if(this.files.length == 0) {
+      this.files.push(...event.addedFiles);
+      this.onFileSelected();
+    }
+
   }
 
   onRemove(event) {
-
     this.files.splice(this.files.indexOf(event), 1);
+  }
+
+
+  onFileSelected() {
+
+    this.authService.getUser().subscribe((u) =>{
+
+    const n = u.id;
+    const filePath = `Perfil/${n}`;
+    const fileRef = this.storage.ref(filePath);
+    for (let key in this.files) {
+      const task = this.storage.upload(`Perfil/${n}`, this.files[key]);
+
+      task
+        .snapshotChanges()
+        .pipe(
+          finalize(() => {
+            this.downloadURL = fileRef.getDownloadURL();
+            this.downloadURL.subscribe(url => {
+              if (url) {
+                this.fab = url;
+              }
+              console.log(this.fab);
+            });
+          })
+        )
+        .subscribe(url => {
+          if (url) {
+            console.log(url);
+
+            this.storageRef = firebase.storage().ref().child(this.fab);
+          }
+        });
+    }
+  });
   }
 
 }

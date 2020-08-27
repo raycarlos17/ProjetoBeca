@@ -13,10 +13,5 @@ export class PerfilService {
   constructor(private afs:AngularFirestore,) {}
     get(): Observable<Perfil[]> {
       return this.perfilCollection.valueChanges()
-
-    }
-
-    addFotoPerfil(s:Perfil) {
-      this.perfilCollection.add(s)
     }
 }
