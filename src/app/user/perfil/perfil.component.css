@@ -13,7 +13,7 @@ h1 {
 
 mat-card {
   width: 600px;
-  height: 400px;
+  height: 500px;
   background-color: #f0f0f5;
 }
 
@@ -41,21 +41,33 @@ label #last-name{
 }
 
 .formulario {
-  margin-top: 50px;
-}
-
-.form-group {
-  display: flex;
-}
-.form-group  input{
-  margin-left: 9px;
-}
-
-.sobrenome {
-  margin-left: 260px;
+  position: absolute;
+  margin-bottom: 50px;
 }
 
 label {
   color: yellowgreen;
   font-weight: bold;
+}
+
+.custom-dropzone {
+  background-color: #fff;
+  border-radius: 180px;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  border: yellowgreen solid 1px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 400ms;
+}
+
+.custom-dropzone:hover {
+  background-color: rgba(223, 233, 223, 0.7);
+}
+
+.header-perfil {
+  display: flex;
+  justify-content: space-between;
+
 }
