@@ -28,6 +28,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { RegisterGymComponent } from './gym/register-gym/register-gym.component';
 import { CepComponent } from './gym/cep/cep.component';
 import { MapsComponent } from './maps/maps.component';
+import { AdmImagensComponent } from './admin/adm-imagens/adm-imagens.component';
 
 
 
@@ -45,8 +46,8 @@ import { MapsComponent } from './maps/maps.component';
     AdminComponent,
     RegisterGymComponent,
     CepComponent,
-    MapsComponent
-
+    MapsComponent,
+    AdmImagensComponent,
 
 
 

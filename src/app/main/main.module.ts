@@ -8,6 +8,8 @@ import { MaterialModule } from '../material.module';
 import { FormsModule } from '@angular/forms';
 
 
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -15,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     MainRoutingModule,
     MaterialModule,
     FormsModule,
+    MaterialModule
   ]
 })
 export class MainModule { }
