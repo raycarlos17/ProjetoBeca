@@ -37,6 +37,11 @@
         <td mat-cell *matCellDef="let element"> {{element.description}} </td>
       </ng-container>
 
+      <ng-container matColumnDef='imagens'>
+        <th mat-header-cell *matHeaderCellDef> Imagens</th>
+        <td mat-cell *matCellDef="let element"> <button [disabled]='element.imagem == null' (click)='redirecionaImagens(dataSource, element) ' routerLink='/adminImagens' mat-button><mat-icon>collections</mat-icon></button> </td>
+      </ng-container>
+
       <ng-container matColumnDef='excluir'>
         <th mat-header-cell *matHeaderCellDef> Deletar </th>
         <td mat-cell *matCellDef="let element"> <button (click)='deleteOcorrencias(dataSource, element)' mat-button><mat-icon>delete</mat-icon></button> </td>

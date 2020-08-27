@@ -1,0 +1,16 @@
+<mat-card>
+  <form  (ngSubmit)="onSubmit()">
+<app-cep></app-cep>
+<div id="number">
+<mat-form-field appearance="legacy">
+  <mat-label>Numero</mat-label>
+  <input matInput placeholder="Numero" name="num" [(ngModel)]="numbers" >
+  <mat-hint>Numero</mat-hint>
+  </mat-form-field>
+  <button mat-button color="primary" >Procurar no mapa</button>
+  </div>
+    <br>
+</form>
+
+</mat-card>
+<app-maps></app-maps>
