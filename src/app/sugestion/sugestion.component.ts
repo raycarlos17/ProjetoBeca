@@ -42,6 +42,11 @@ export class SugestionComponent implements OnInit {
 
     this.files.splice(this.files.indexOf(event), 1);
   }
+  onRemoveMulti() {
+    while (this.files.length) {
+      this.files.pop()
+    }
+  }
   onFileSelected(n) {
 
 
@@ -72,7 +77,8 @@ export class SugestionComponent implements OnInit {
   }
 
 
-  onSubmit() {
+  onSubmit(formulario) {
+
     for (let key in this.files) {
       this.auhtService.getUser().subscribe((u) => {
 
@@ -86,7 +92,16 @@ export class SugestionComponent implements OnInit {
         console.log()
        this.onFileSelected(u.id)
         this.sugestioService.addSugestion(newSuges)
+
       })
     }
+
+    this.snackBar.open(`${this.sugestionForm.value.type} registrada com sucesso` ,'X',{
+      duration:2000,
+      verticalPosition:'top',
+
+    });
+    formulario.form.reset();
   }
+
 }

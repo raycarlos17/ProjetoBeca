@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class PerfilComponent implements OnInit {
   user$: Observable<User>;
   authenticated$: Observable<boolean>;
+  selectedFile: File = null;
+  fab;
+  files: File[] = [];
 
   constructor(private authService: AuthService,
   private router:Router) {
@@ -20,6 +23,16 @@ export class PerfilComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  onSelect(event) {
+
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event) {
+
+    this.files.splice(this.files.indexOf(event), 1);
   }
 
 }
