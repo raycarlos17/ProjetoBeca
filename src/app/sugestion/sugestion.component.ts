@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sugestion',
@@ -29,7 +30,8 @@ export class SugestionComponent implements OnInit {
     private auhtService: AuthService,
     private sugestioService: SugestionService,
     private snackBar: MatSnackBar,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -90,10 +92,10 @@ export class SugestionComponent implements OnInit {
           data: Date.now()
         }
         console.log()
-        this.sugestioService.addSugestion(newSuges)
+
        this.onFileSelected(u.id)
 
-
+       this.sugestioService.addSugestion(newSuges)
       })
     }
 
@@ -102,7 +104,7 @@ export class SugestionComponent implements OnInit {
       verticalPosition:'top',
 
     });
-    formulario.form.reset();
+    this.router.navigate(['/'])
   }
 
 }
