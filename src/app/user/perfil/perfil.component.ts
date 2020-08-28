@@ -81,7 +81,6 @@ export class PerfilComponent implements OnInit {
                 this.fab = url;
               }
               this.storageRef = firebase.storage().ref().child(url).fullPath;
-              alert(this.storageRef);
             });
           })
         )
