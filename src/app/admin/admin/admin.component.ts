@@ -4,6 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { AdminService } from '../shared/admin.service';
 import { DataSource } from '@angular/cdk/table';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AdminDataService } from '../shared/admin-data.service';
+import { Observable } from 'rxjs';
  
 @Component({
   selector: 'app-admin',
@@ -22,11 +24,15 @@ export class AdminComponent implements OnInit {
   posicaoImagens: any;
  
 
-  constructor(private adminService: AdminService, private angularFireDataBase: AngularFireDatabase  ) { }
+  sugestions: Observable<any>;
+
+
+  constructor(private adminService: AdminService, private adminDataService: AdminDataService ) { }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
-    this.registros = this.dataSource.data
+    this.registros = this.dataSource.data;
+    this.sugestions = this.adminService.getAll();
   }
 
 
@@ -49,6 +55,10 @@ export class AdminComponent implements OnInit {
     let posicao = arrayOcorrencias.data.indexOf(element);
     this.posicaoImagens = posicao
     this.adminService.registros = this.registros[this.posicaoImagens];
+  }
+
+  delete(key: string) {
+    this.adminService.delete(key)
   }
 
 

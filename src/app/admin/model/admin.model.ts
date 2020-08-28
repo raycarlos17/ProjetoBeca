@@ -5,3 +5,14 @@ export interface PeriodicElement {
   symbol: string;
 }
   
+export class Sugestion { 
+  email: string;
+  firstname: string;
+  lastname: string;
+  password: string;
+  phone: string;
+  coment: string;
+  data:number;
+  type: string;
+   uploud: string;
+}
