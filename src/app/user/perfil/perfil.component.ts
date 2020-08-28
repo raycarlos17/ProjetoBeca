@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AngularFireStorage, createStorageRef, BUCKET } from "@angular/fire/storage";
 import { finalize } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
+import { FIREBASE_OPTIONS } from '@angular/fire';
 
 @Component({
   selector: 'app-perfil',
@@ -19,7 +20,7 @@ export class PerfilComponent implements OnInit {
   fab;
   files: File[] = [];
   downloadURL: Observable<string>;
-  public imageUrl = []
+  public imageUrl:any;
   storageRef: any;
 
   constructor(public authService: AuthService,
@@ -30,13 +31,11 @@ export class PerfilComponent implements OnInit {
    }
 
   ngOnInit(): void {
-
-    this.authService.getUser().subscribe((u) =>{
-
-
-      this.storageRef = firebase.storage().ref().put(this.fab);
-      console.log(this.storageRef);
-    });
+    if(this.imageUrl == null){
+      firebase.storage().ref().child('perfil/');
+    }else{
+      this.imageUrl = this.storageRef;
+    }
   }
 
 
@@ -73,15 +72,13 @@ export class PerfilComponent implements OnInit {
               if (url) {
                 this.fab = url;
               }
-              console.log(this.fab);
+              this.storageRef = firebase.storage().ref().child(url).fullPath;
             });
           })
         )
         .subscribe(url => {
           if (url) {
             console.log(url);
-
-            this.storageRef = firebase.storage().ref().child(this.fab);
           }
         });
     }
