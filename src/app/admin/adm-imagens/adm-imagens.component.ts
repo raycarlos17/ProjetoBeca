@@ -14,8 +14,8 @@ export class AdmImagensComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.registro = this.adminService.registros
-    console.log(this.registro)
+  //  this.registro = this.adminService.registros
+  //  console.log(this.registro)
   }
 
 

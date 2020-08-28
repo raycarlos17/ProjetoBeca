@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { Sugestion } from 'src/app/sugestion/model/sugestion.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
 
-  registros: any;
+  private sugestionCollection: AngularFirestoreCollection<Sugestion> = this.afs.collection('sugestions')
 
-  constructor() { }
+  constructor(private afs:AngularFirestore) { }
 
   get(){
-    return this.registros;
+    return this.sugestionCollection.valueChanges();
   }
 
 }
