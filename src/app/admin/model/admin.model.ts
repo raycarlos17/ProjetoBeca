@@ -16,3 +16,7 @@ export class Sugestion {
   type: string;
    uploud: string;
 }
+
+export class Sugestao {
+  id: any;
+}
