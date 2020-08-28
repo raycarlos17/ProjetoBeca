@@ -14,7 +14,7 @@ import { Sugestion } from 'src/app/sugestion/model/sugestion.model';
 export class AdminComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['numero', 'name', 'email', 'date', 'type', 'description', 'imagens'];
+  displayedColumns: string[] = ['numero', 'name', 'email', 'type', 'description', 'imagens'];
   // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -30,10 +30,12 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     // this.dataSource.paginator = this.paginator;
     // this.registros = this.dataSource.data
-   this.adminService.get().subscribe((u) => {
+    this.adminService.get().subscribe((u) => {
+      this.dataSource = new MatTableDataSource();
      this.dataSource = u;
+     this.dataSource.paginator = this.paginator;
     })
-    
+
 
   }
 
@@ -63,7 +65,7 @@ export class AdminComponent implements OnInit {
   delete(key: string) {
     console.log(key)
     this.adminService.delete(key)
-    
+
   }
 
 
