@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../../user/model/user.model';
@@ -22,20 +23,27 @@ export class PerfilComponent implements OnInit {
   downloadURL: Observable<string>;
   public imageUrl:any;
   storageRef: any;
+  imagem: string;
+
 
   constructor(public authService: AuthService,
-  public router:Router,
-  public storage: AngularFireStorage) {
+  private router:Router,
+  private storage: AngularFireStorage,
+  private http: HttpClient) {
     this.user$ = this.authService.getUser()
     this.authenticated$ = this.authService.authenticate()
    }
 
   ngOnInit(): void {
-    if(this.imageUrl == null){
-      firebase.storage().ref().child('perfil/');
-    }else{
-      this.imageUrl = this.storageRef;
-    }
+    this.authService.getUser().subscribe((u) =>{
+      const id = u.id;
+      const urlBase = 'https://firebasestorage.googleapis.com/v0/b/projeto-beca.appspot.com/o/Perfil%2F' + u.id;
+      this.http.get(urlBase).subscribe((sucess:any) => {
+        const urlImage = urlBase + '?alt=media&token=' + sucess.downloadTokens;
+        this.imagem = urlImage;
+      });
+    });
+
   }
 
 
@@ -73,6 +81,7 @@ export class PerfilComponent implements OnInit {
                 this.fab = url;
               }
               this.storageRef = firebase.storage().ref().child(url).fullPath;
+              alert(this.storageRef);
             });
           })
         )
