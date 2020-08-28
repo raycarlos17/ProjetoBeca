@@ -17,6 +17,6 @@ constructor(private afs:AngularFirestore,) { }
 
 
   addSugestion(s:Sugestion) {
-    this.sugestionCollection.add({...s})
+    this.sugestionCollection.add(s)
   }
 }
