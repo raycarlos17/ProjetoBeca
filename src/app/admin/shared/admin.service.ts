@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
+
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Sugestion } from 'src/app/sugestion/model/sugestion.model';
 import { map } from 'rxjs/operators';
+
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +17,17 @@ export class AdminService {
 
   registros: any;
 
-  constructor(private angularFireDataBase: AngularFireDatabase) { }
 
-  get() {
-    return this.registros;
+
+
+
+  private sugestionCollection: AngularFirestoreCollection<Sugestion> = this.afs.collection('sugestions')
+
+  constructor(private afs:AngularFirestore, private angularFireDataBase: AngularFireDatabase) { }
+
+  get(){
+    return this.sugestionCollection.valueChanges();
+
   }
 
   insert(sugestion: Sugestion) {
