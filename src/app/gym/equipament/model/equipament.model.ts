@@ -3,5 +3,6 @@ export class Equipament{
   decription: string
   img:string
   qty: number
-  id?:number
+  id?: number
+  cep?:any
 }

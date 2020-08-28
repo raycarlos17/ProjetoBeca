@@ -1,4 +1,5 @@
 export class Coordinate{
   latitude: number
-  longitude:number
+  longitude: number
+  id?:string
 }
