@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { Equipament } from '../model/equipament.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EquipamentService {
-cart=[]
-constructor() { }
+  cart = []
+  private gymCollection: AngularFirestoreCollection<Equipament> = this.afs.collection('Equipament')
+constructor(private afs: AngularFirestore) { }
 
   add(e) {
 
@@ -35,5 +38,8 @@ constructor() { }
         }
       }
       console.log(this.cart)
+  }
+  get() {
+    return this.gymCollection.valueChanges();
   }
 }
