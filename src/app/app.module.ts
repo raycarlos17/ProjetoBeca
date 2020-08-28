@@ -30,7 +30,6 @@ import { CepComponent } from './gym/cep/cep.component';
 import { MapsComponent } from './maps/maps.component';
 import { AdmImagensComponent } from './admin/adm-imagens/adm-imagens.component';
 import { EquipamentComponent } from './gym/equipament/equipament.component';
-import { PointsComponent } from './admin/points/points.component';
 
 
 
@@ -52,7 +51,6 @@ import { PointsComponent } from './admin/points/points.component';
     MapsComponent,
     AdmImagensComponent,
     EquipamentComponent,
-    PointsComponent,
 
 
 

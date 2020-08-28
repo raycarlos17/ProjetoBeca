@@ -4,12 +4,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuardService } from './auth/guard/auth-guard.service'
 import { AdminComponent } from './admin/admin/admin.component';
 import { AdmImagensComponent } from './admin/adm-imagens/adm-imagens.component';
-import {PointsComponent } from './admin/points/points.component'
+
 const routes: Routes = [
 
   {path:'main', loadChildren:'./main/main.module#MainModule',canActivate:[AuthGuardService]},
   { path: 'admin', component: AdminComponent },
-  { path: 'adminEquipament', component: PointsComponent },
   {path: 'adminImagens', component: AdmImagensComponent},
 
 
