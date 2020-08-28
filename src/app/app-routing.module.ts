@@ -8,7 +8,7 @@ import { AdmImagensComponent } from './admin/adm-imagens/adm-imagens.component';
 const routes: Routes = [
 
   {path:'main', loadChildren:'./main/main.module#MainModule',canActivate:[AuthGuardService]},
-  {path: 'admin', component: AdminComponent},
+  { path: 'admin', component: AdminComponent },
   {path: 'adminImagens', component: AdmImagensComponent},
 
 

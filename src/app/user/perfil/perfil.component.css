@@ -52,13 +52,14 @@ label {
 
 .custom-dropzone {
   background-color: #fff;
-  border-radius: 180px;
-  width: 180px;
-  height: 180px;
+  border-radius: 5px;
+  width: 130px;
+  height: 130px;
   display: flex;
   border: yellowgreen solid 1px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transition: background-color 400ms;
 }
 

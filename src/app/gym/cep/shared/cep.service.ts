@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CEP } from '../model/cep.model';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CepService {
-  emmitCep ={}
-constructor(private http:HttpClient) { }
+  emmitCep = {}
+  private cepCollection: AngularFirestoreCollection<CEP> = this.afs.collection('CEP')
+constructor(private afs: AngularFirestore,private http:HttpClient) { }
 
 search(cep:string){
   return this.http.get(`https://viacep.com.br/ws/${cep}/json/`)
@@ -29,5 +31,11 @@ search(cep:string){
     cep.state  =  cepRes.uf
     return cep
 
+  }
+  saveCep(c:CEP) {
+    this.cepCollection.add({...c})
+  }
+  getCep() {
+    return this.cepCollection.valueChanges()
   }
 }

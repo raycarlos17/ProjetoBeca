@@ -90,8 +90,9 @@ export class SugestionComponent implements OnInit {
           data: Date.now()
         }
         console.log()
-       this.onFileSelected(u.id)
         this.sugestioService.addSugestion(newSuges)
+       this.onFileSelected(u.id)
+
 
       })
     }
