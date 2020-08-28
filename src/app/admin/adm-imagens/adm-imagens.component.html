@@ -1,15 +1,15 @@
-<!--app-admin class="card-imagens">
+<mat-card class="card-imagens">
     <mat-card-header>
       <div mat-card-avatar class="card-avatar-imagens"></div>
-      <mat-card-title>{{registro.name}}</mat-card-title>
-      <mat-card-subtitle>{{registro.email}}</mat-card-subtitle>
+      <mat-card-title>{{registro.User.firstname}}</mat-card-title>
+      <mat-card-subtitle>{{registro.User.email}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src={{registro.imagem}} alt="Photo of a Shiba Inu">
+    <img mat-card-image src='{{imagenSugestao}}' alt="Imagem Sugestão">
     <mat-card-content>
       <p>
-        {{registro.description}}
+        {{registro.comment}}
       </p>
     </mat-card-content>
-  </mat-card>>-->
+  </mat-card>
 
   
