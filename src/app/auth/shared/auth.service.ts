@@ -55,6 +55,7 @@ logout(){
     return this.afAuth.authState
       .pipe(map(u=>(u) ? true :false))
   }
+ 
   loginGoogle():Observable<User> {
     const provider = new auth.GoogleAuthProvider();
     return from(this.afAuth.signInWithPopup(provider)).pipe(
